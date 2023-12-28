@@ -11,7 +11,7 @@ require('./db/conn');
 
 app.use(express.json());
 app.use(cors({
-    origin: 'https://your-frontend-domain.com', // Replace with your frontend domain
+    origin: 'https://mern01-frontend.netlify.app', // Replace with your frontend domain
     credentials: true // Allow credentials (if required)
   }));
 
