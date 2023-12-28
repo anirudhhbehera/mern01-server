@@ -87,14 +87,14 @@ router.post('/signin',async (req,res)=>{
 
           res.cookie("jwtoken",token,{
             expires:new Date(Date.now()+25892000000),
-            httpOnly:false
+            httpOnly:true
           });
 
         if (!isMatch) {
             res.status(400).json({error:"Invalid"});
         }else{
             res.json({message:"user signed in successfully"});
-            console.log(res);
+            // console.log(res);
         }
         }else{
           res.status(400).json({error:"Invalid"});
