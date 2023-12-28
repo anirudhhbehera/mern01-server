@@ -72,7 +72,7 @@ router.post('/signin',async (req,res)=>{
     // console.log(req.body);
     // res.json({message:"Done"});
     try {
-      let token;
+      
         const {email,password} = req.body;
         if (!email || !password) {
             return res.status(400).json({error:"Please fill the data"})
