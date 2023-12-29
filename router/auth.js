@@ -10,7 +10,20 @@ require('../db/conn');
 const User =require("../model/userSchema"); 
 
 router.get('/', (req, res) => {
-    res.send(`Hello world from the server router js`);
+    // res.send(`Hello world from the server router js `);
+    const clientURL = 'https://mern01-frontend.netlify.app';
+    const gitHubURL = 'https://github.com/anirudhhbehera'; // Replace this with your client-side URL
+
+  // Send HTML response with a link to the client-side URL
+  res.send(`
+    <html>
+      <body>
+        <p>Hello world from the server router js</p>
+        <p><a href="${clientURL}">Click here to go to the client side</a></p>
+        <p><a href="${gitHubURL}">Click here to go to the github</a></p>
+      </body>
+    </html>
+  `);
 });
 
 
@@ -138,7 +151,6 @@ router.post('/contact',authenticate, async(req, res) => {
 router.get('/logout', (req, res) => {
   console.log(`Hello my Logout page`);
   res.clearCookie('jwtoken',{path:'/'})
-  localStorage.removeItem('jwtoken');
   res.status(200).send("user Logout");
 });
 
