@@ -86,7 +86,7 @@ router.post('/signin',async (req,res)=>{
           console.log(token);
 
           // res.cookie("jwtoken",token,{
-          //   expires:new Date(Date.now()+25892000000),//edit:commented
+          //   expires:new Date(Date.now()+25892000000),//edit:commented  
           //   httpOnly:true
           // });
 
@@ -138,6 +138,7 @@ router.post('/contact',authenticate, async(req, res) => {
 router.get('/logout', (req, res) => {
   console.log(`Hello my Logout page`);
   res.clearCookie('jwtoken',{path:'/'})
+  localStorage.removeItem('jwtoken');
   res.status(200).send("user Logout");
 });
 
