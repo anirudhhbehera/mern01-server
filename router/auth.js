@@ -85,15 +85,15 @@ router.post('/signin',async (req,res)=>{
           const token = await userLogin.generateAuthToken();
           console.log(token);
 
-          res.cookie("jwtoken",token,{
-            expires:new Date(Date.now()+25892000000),
-            httpOnly:true
-          });
+          // res.cookie("jwtoken",token,{
+          //   expires:new Date(Date.now()+25892000000),//edit:commented
+          //   httpOnly:true
+          // });
 
         if (!isMatch) {
             res.status(400).json({error:"Invalid"});
         }else{
-            res.json({message:"user signed in successfully"});
+            res.json({message:"user signed in successfully",token:token});//edit:server passing token as response
             // console.log(res);
         }
         }else{
